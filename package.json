@@ -1,0 +1,16 @@
+{
+  "name": "range-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "range-list.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "Qi Huang",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.1.0"
+  }
+}
