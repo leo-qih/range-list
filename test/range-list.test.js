@@ -60,11 +60,11 @@ describe(`RangeList`, function () {
         rl.remove([21, 21]);
         assert.deepEqual(rl.rangeList, [[-9, 8], [10, 21]]);
     });
-    it(`remove [21, 25], should equal to [-9, 3), [10, 21)`, function () {
+    it(`remove [21, 25], should equal to [-9, 8), [10, 21)`, function () {
         rl.remove([21, 25]);
         assert.deepEqual(rl.rangeList, [[-9, 8], [10, 21]]);
     });
-    it(`remove [-15, -9], should equal to [-9, 3), [10, 21)`, function () {
+    it(`remove [-15, -9], should equal to [-9, 8), [10, 21)`, function () {
         rl.remove([-15, -9]);
         assert.deepEqual(rl.rangeList, [[-9, 8], [10, 21]]);
     });
