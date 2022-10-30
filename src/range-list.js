@@ -25,6 +25,8 @@ class RangeList {
      * @param {Array<number>} range - Array of two integers that specify beginning and end of range.
      */
     add(range) {
+        if (!this._isValidRange(range)) return;
+
         let left = range[0], right = range[1];
         let idx = this._findTargetRange(left);
         // remove all the ranges that are overlapping with the target range,
@@ -43,6 +45,8 @@ class RangeList {
      * @param {Array<number>} range - Array of two integers that specify beginning and end of range.
      */
     remove(range) {
+        if (!this._isValidRange(range)) return;
+
         let left = range[0], right = range[1];
         let idx = this._findTargetRange(range[0] + 1);
         // remove all the ranges that are overlapped with the target range
@@ -81,8 +85,9 @@ class RangeList {
      * Finds the first range with its right boundary greater or equal than the given number,
      * or the length of the range list if there is no such range
      * 
-     * @param {Number} num
+     * @param {Number} num - target number to be searched in the range list
      * @return {Number} Index of the range
+     * @private
      */
     _findTargetRange(num) {
         for (const i in this._rangeList) {
@@ -92,6 +97,17 @@ class RangeList {
         }
 
         return this._rangeList.length;
+    }
+
+    /**
+     * Range validation check
+     *
+     * @param {Array<Number>} range - Array of two integers that specify beginning and end of range.
+     * @returns {boolean} true if the range is valid, otherwise false
+     * @private
+     */
+    _isValidRange(range) {
+        return Number.isInteger(range[0]) && Number.isInteger(range[1]) && range[0] <= range[1];
     }
 }
 
